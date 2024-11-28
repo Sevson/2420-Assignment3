@@ -1,54 +1,6 @@
 # 2420-Assignment3 Part 1
 # Setup Instructions
 
-## Nginx Configuration
 
-1. Save the Nginx configuration file:
-
-    ```bash
-    sudo nano /etc/nginx/nginx.conf
-    ```
-    (Add your Nginx configuration content and save the file.)
-
-2. Create a symbolic link for the generated HTML directory:
-
-    ```bash
-    sudo ln -s /var/lib/webgen/HTML /usr/share/nginx/html
-    ```
-
-3. Reload Nginx to apply the new configuration:
-
-    ```bash
-    sudo systemctl reload nginx
-    ```
-
-## Systemd Service
-
-1. Save the service file:
-
-    ```bash
-    sudo nano /etc/systemd/system/generate_index.service
-    ```
-    (Add your service configuration content and save the file.)
-
-2. Reload `systemd` to recognize the new service:
-
-    ```bash
-    sudo systemctl daemon-reload
-    ```
-
-## Systemd Timer
-
-1. Save the timer file:
-
-    ```bash
-    sudo nano /etc/systemd/system/generate_index.timer
-    ```
-    (Add your timer configuration content and save the file.)
-
-2. Enable and start the timer:
-
-    ```bash
-    sudo systemctl enable generate_index.timer
-    sudo systemctl start generate_index.timer
-    ```
+![ufw](https://github.com/user-attachments/assets/2b2ff220-0f63-4cfa-b47e-e67a9cc08c12)
+![webserver](https://github.com/user-attachments/assets/d1922bb4-d31d-446a-a1ec-d5dcb90c4942)
