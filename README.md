@@ -38,9 +38,9 @@ sudo cp 2420-Assignment3/assets/index_generate /var/lib/webgen/bin
 
 # Setup Instructions for WebGen, Nginx, and UFW
 
-## 1. Setting up `.timer` and `.service` for `generate_index`
+## Setting up `.timer` and `.service` for `generate_index`
 
-### 1.1. Copy the Systemd Service and Timer Files
+### 1.Copy the Systemd Service and Timer Files
 
 Copy the provided `generate_index.timer` and `generate_index.service` files to `/etc/systemd/system`:
 
@@ -85,50 +85,49 @@ View logs for the timer:
 ```bash
 journalctl -u generate_index.timer
 ```
-Setting Up Nginx
-1. Create directories for server blocks
 
-Create the directories required for the server block configuration:
+# Setting Up Nginx
 
+## 1. Create Directories for Server Blocks
+
+Create the necessary directories for server block configuration:
+
+```bash
 sudo mkdir /etc/nginx/sites-available /etc/nginx/sites-enabled
-
-2. Copy the Nginx configuration file
+```
+##2. Copy the Nginx configuration file
 
 Copy the provided default.conf file to /etc/nginx/sites-available:
-
+```bash
 sudo cp ~/assignment3/default.conf /etc/nginx/sites-available
-
-3. Create a symbolic link
+```
+##3. Create a symbolic link
 
 Create a symbolic link to enable the server block:
-
+```bash
 ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
-
-4. Start and enable Nginx
+```
+##4. Start and enable Nginx
 
 Start and enable the Nginx service:
-
+```bash
 sudo systemctl start nginx
 sudo systemctl enable nginx
-
-5. Check the status and test Nginx configuration
+```
+##5. Check the status and test Nginx configuration
 Check the Nginx service status:
-
+```bash
 sudo systemctl status nginx
-
+```
 Check for any errors in the Nginx configuration:
-
+```bash
 sudo nginx -t
-
+```
 Apply any changes to the Nginx configuration:
-
+```bash
 sudo systemctl reload nginx
+```
 
-Note
-Why is it important to use a separate server block file instead of modifying the main nginx.conf file?
-
-Using a separate server block keeps configurations organized and easy to manage. It reduces errors, simplifies troubleshooting, and makes backups and scaling easier compared to editing the main nginx.conf file directly.
-Setting Up UFW (Uncomplicated Firewall)
 1. Enable and start the UFW service
 
 Enable and start the UFW firewall:
