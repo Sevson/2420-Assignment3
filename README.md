@@ -36,43 +36,55 @@ Copy the index_generate script to /var/lib/webgen/bin:
 sudo cp 2420-Assignment3/assets/index_generate /var/lib/webgen/bin
 ```
 
-Setting up .timer and .service for generate_index
-1. Copy the systemd service and timer files
+# Setup Instructions for WebGen, Nginx, and UFW
 
-Copy the provided generate_index.timer and generate_index.service files to /etc/systemd/system:
+## 1. Setting up `.timer` and `.service` for `generate_index`
 
+### 1.1. Copy the Systemd Service and Timer Files
+
+Copy the provided `generate_index.timer` and `generate_index.service` files to `/etc/systemd/system`:
+
+```bash
 sudo cp ~/assignment3/generate_index.{service,timer} /etc/systemd/system
+```
 
-2. Reload systemd
+## 2. Reload systemd
 
 After copying the files, reload systemd to recognize the new services and timer:
 
+```bash
 sudo systemctl daemon-reload
-
-3. Enable and start the timer
+```
+## 3. Enable and start the timer
 
 Enable and start the systemd timer:
 
+```bash
 sudo systemctl enable generate_index.timer
 sudo systemctl start generate_index.timer
-
-4. Verify the service and timer are running successfully
+```
+## 4. Verify the service and timer are running successfully
 Check when the timer will run next:
 
+```bash
 systemctl list-timers --all | grep generate_index.timer
-
+```
 Check if the service ran successfully:
 
+```bash
 sudo systemctl status generate_index.service
-
+```
 View logs for the service:
 
+```bash
 journalctl -u generate_index.service
-
+```
+```bash
 View logs for the timer:
-
+```
+```bash
 journalctl -u generate_index.timer
-
+```
 Setting Up Nginx
 1. Create directories for server blocks
 
