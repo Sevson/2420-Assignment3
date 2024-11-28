@@ -95,26 +95,26 @@ Create the necessary directories for server block configuration:
 ```bash
 sudo mkdir /etc/nginx/sites-available /etc/nginx/sites-enabled
 ```
-##2. Copy the Nginx configuration file
+## 2. Copy the Nginx configuration file
 
 Copy the provided default.conf file to /etc/nginx/sites-available:
 ```bash
 sudo cp ~/assignment3/default.conf /etc/nginx/sites-available
 ```
-##3. Create a symbolic link
+## 3. Create a symbolic link
 
 Create a symbolic link to enable the server block:
 ```bash
 ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 ```
-##4. Start and enable Nginx
+## 4. Start and enable Nginx
 
 Start and enable the Nginx service:
 ```bash
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
-##5. Check the status and test Nginx configuration
+## 5. Check the status and test Nginx configuration
 Check the Nginx service status:
 ```bash
 sudo systemctl status nginx
@@ -127,37 +127,36 @@ Apply any changes to the Nginx configuration:
 ```bash
 sudo systemctl reload nginx
 ```
+# UFW setup
 
-1. Enable and start the UFW service
-
+## 1. Enable and start the UFW service
 Enable and start the UFW firewall:
-
+```bash
 sudo systemctl enable --now ufw.service
-
-2. Allow SSH and limit the rate to prevent brute-force attacks
-
+```
+## 2. Allow SSH and limit the rate to prevent brute-force attacks
 Allow SSH connections and limit the rate:
-
+```bash
 sudo ufw allow ssh
 sudo ufw limit ssh
-
-3. Allow HTTP connections
-
+```
+## 3. Allow HTTP connections
 Allow HTTP (port 80) traffic:
-
+```bash
 sudo ufw allow http
-
-4. Enable the firewall
-
+```
+## 4. Enable the firewall
 Enable the firewall:
-
+```bash
 sudo ufw enable
-
-5. Check the status of UFW
-
+```
+## 5. Check the status of UFW
 Check the status of the firewall to confirm it's working:
-
+```bash
 sudo ufw status verbose
-
+```
+# Output:
 ![ufw](https://github.com/user-attachments/assets/2b2ff220-0f63-4cfa-b47e-e67a9cc08c12)
+
+
 ![webserver](https://github.com/user-attachments/assets/d1922bb4-d31d-446a-a1ec-d5dcb90c4942)
