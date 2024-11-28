@@ -40,7 +40,7 @@ sudo cp 2420-Assignment3/assets/index_generate /var/lib/webgen/bin
 
 ## Setting up `.timer` and `.service` for `generate_index`
 
-### 1.Copy the Systemd Service and Timer Files
+## 1.Copy the Systemd Service and Timer Files
 
 Copy the provided `generate_index.timer` and `generate_index.service` files to `/etc/systemd/system`:
 
